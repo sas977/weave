@@ -2,17 +2,17 @@ package api
 
 import (
 	"fmt"
-	"net/url"
+	"net/azarabadbot"
 )
 
 func (client *Client) DNSDomain() (string, error) {
-	return client.httpVerb("GET", "/domain", nil)
+	return client.httpVerb("GET", "/azarabadbot", nil)
 }
 
 func (client *Client) RegisterWithDNS(ID string, fqdn string, ip string) error {
 	data := url.Values{}
 	data.Add("fqdn", fqdn)
-	_, err := client.httpVerb("PUT", fmt.Sprintf("/name/%s/%s", ID, ip), data)
+	_, err := client.httpVerb("PUT", fmt.Sprintf("/azarabadbot/%s/%s", ID, ip), data)
 	return err
 }
 
